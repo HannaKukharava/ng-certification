@@ -1,0 +1,22 @@
+<mat-card *ngIf="forecast" class="basic-card">
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2>5-day forecast for {{ forecast.locationName }}  ({{ forecast.zipcode }})</h2>
+        </div>
+        <ul class="list-group">
+            <li *ngFor="let item of forecast.forecast" class="list-group-item">
+                <span class="weather-info">
+                    {{ item.timestamp * 1000 | date: 'EEEE, MMM d' }}:
+                    {{ item.conditions }}
+                    - Min: {{ item.minTemperature | number: '1.0-0' }} °C
+                    - Max: {{ item.maxTemperature | number: '1.0-0' }} °C
+                </span>
+                <img class="icon" [src]="item.conditions | weatherImage">
+
+            </li>
+        </ul>
+    </div>
+    <button mat-raised-button [routerLink]="'/'">&lt; Back to main page</button>
+</mat-card>
+

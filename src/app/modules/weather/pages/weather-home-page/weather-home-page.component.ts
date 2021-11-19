@@ -4,7 +4,7 @@ import {CoreModuleState} from "../../../../store/reducers";
 import {Store} from "@ngrx/store";
 import {getWeatherSelector} from "../../../../store/selectors/locations.selector";
 import {Observable} from "rxjs";
-import {addLocation, removeLocation} from "../../../../store/actions/location.actions";
+import {addLocation, removeLocation} from "../../../../store/actions/weather.actions";
 
 @Component({
   selector: 'app-weather-home',

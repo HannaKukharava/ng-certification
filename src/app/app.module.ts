@@ -25,7 +25,7 @@ function localStorageSyncReducer(reducer: ActionReducer<CoreModuleState>): Actio
     return localStorageSync({
         keys: [
             {
-                locations: ['weather']
+                weather: ['weather']
             }
         ],
         rehydrate: true

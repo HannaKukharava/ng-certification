@@ -2,13 +2,12 @@ import {Injectable} from '@angular/core';
 import {Actions, createEffect, ofType} from '@ngrx/effects';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
-import {HttpError} from "../../models/http-error.model";
 import {WeatherService} from "../../services/weather.service";
 import {Weather} from "../../models/weather.model";
-import {addLocation, addLocationFail, addLocationSuccess} from "../actions/location.actions";
+import {addLocation, addLocationFail, addLocationSuccess} from "../actions/weather.actions";
 
 @Injectable()
-export class LocationEffects {
+export class WeatherEffects {
     constructor(private actions$: Actions, private service: WeatherService) {
     }
 
@@ -18,7 +17,7 @@ export class LocationEffects {
                 switchMap(({zipcode}) => {
                         return this.service.getCurrentWeather(zipcode).pipe(
                             map((weather: Weather) => addLocationSuccess({weather})),
-                            catchError((error: HttpError) => of(addLocationFail({error})))
+                            catchError(error => of(addLocationFail({error: error.message})))
                         );
                     }
                 )
