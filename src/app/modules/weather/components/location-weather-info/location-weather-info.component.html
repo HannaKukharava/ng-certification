@@ -1,0 +1,23 @@
+<ng-container *ngIf="weather?.length">
+    <mat-card *ngFor="let item of weather" class="basic-card flex">
+        <div>
+            <mat-chip-list>
+                <mat-chip class="basic-card__title" title="Show 5-day forecast for the city" [routerLink]="['/forecast/', item.zipcode]">{{item.locationName}} ({{item.zipcode}})</mat-chip>
+            </mat-chip-list>
+            <h4><span class="font-bold">Current conditions:</span> {{item.conditions}}</h4>
+            <h4><span class="font-bold">Temperatures today:</span></h4>
+            <ul>
+                <li>Current: {{ item.temperature| number: '1.0-0'  }} °C</li>
+                <li>Max: {{ item.maxTemperature | number: '1.0-0' }} °C</li>
+                <li>Min: {{ item.minTemperature | number: '1.0-0' }} °C</li>
+            </ul>
+        </div>
+        <div>
+            <span class="close" (click)="removeLocation.emit(item.zipcode)">×</span>
+            <img [src]="item.conditions | weatherImage">
+        </div>
+    </mat-card>
+</ng-container>
+<ng-container *ngIf="!weather?.length">
+    <div class="no-location">No location selected.</div>
+</ng-container>

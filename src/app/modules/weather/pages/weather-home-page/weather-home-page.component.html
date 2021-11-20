@@ -1,0 +1,5 @@
+<div class="location-form">
+    <app-location-form (addLocation)="onAddLocation($event)"></app-location-form>
+</div>
+
+<app-location-weather-info [weather]="weather$ | async" (removeLocation)="onRemoveLocation($event)"></app-location-weather-info>
