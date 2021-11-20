@@ -4,11 +4,11 @@ import {RouterModule} from '@angular/router';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {WeatherImagePipe} from "./pipes/weather-image.pipe";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {MatIconModule} from "@angular/material/icon";
 import {MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
     imports: [
@@ -17,7 +17,7 @@ import {MatInputModule} from "@angular/material/input";
 
         // angular material
         MatToolbarModule,
-        MatIconModule,
+        MatChipsModule,
         MatCardModule,
         MatButtonModule,
         MatFormFieldModule,
@@ -35,7 +35,7 @@ import {MatInputModule} from "@angular/material/input";
         CommonModule,
         RouterModule,
         MatToolbarModule,
-        MatIconModule,
+        MatChipsModule,
         MatCardModule,
         MatButtonModule,
         MatFormFieldModule,

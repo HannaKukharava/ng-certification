@@ -8,7 +8,7 @@
             <li *ngFor="let item of forecast.forecast" class="list-group-item">
                 <span class="weather-info">
                     {{ item.timestamp * 1000 | date: 'EEEE, MMM d' }}:
-                    {{ item.conditions }}
+                    <span class="font-bold">{{ item.conditions }}</span>
                     - Min: {{ item.minTemperature | number: '1.0-0' }} °C
                     - Max: {{ item.maxTemperature | number: '1.0-0' }} °C
                 </span>
@@ -17,6 +17,6 @@
             </li>
         </ul>
     </div>
-    <button mat-raised-button [routerLink]="'/'">&lt; Back to main page</button>
+    <button mat-raised-button class="basic-card__button" [routerLink]="'/'">&lt; Back to main page</button>
 </mat-card>
 

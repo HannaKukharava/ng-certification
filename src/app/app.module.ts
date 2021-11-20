@@ -10,6 +10,8 @@ import {CoreModuleState, reducers} from "./store/reducers";
 import {effects} from "./store/effects";
 import {HttpClientModule} from "@angular/common/http";
 import {localStorageSync} from "ngrx-store-localstorage";
+import {ToastrModule} from "ngx-toastr";
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 
 export const STORE_CONFIG = {
@@ -41,8 +43,11 @@ const metaReducers: Array<MetaReducer<any, any>> = [localStorageSyncReducer];
         FormsModule,
         HttpClientModule,
         AppRoutingModule,
+        BrowserAnimationsModule,
         StoreModule.forRoot(reducers, {...STORE_CONFIG, metaReducers}),
-        EffectsModule.forRoot(effects)],
+        EffectsModule.forRoot(effects),
+        ToastrModule.forRoot()
+    ],
     declarations: [AppComponent],
     bootstrap: [AppComponent]
 })
